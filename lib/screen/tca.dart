@@ -45,13 +45,6 @@ class ProctorAccessLogin extends StatelessWidget {
                 style:
                     TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Enter Your User Name',
-                    filled: true,
-                    fillColor: Colors.white),
-                    
-              )
             ],
           ),
         ],
