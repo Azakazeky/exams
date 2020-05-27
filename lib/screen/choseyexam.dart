@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:exam01/compant.dart';
 
 class ChosseYourExam extends StatefulWidget {
   static const routName = '/method/chosseexam';
@@ -9,35 +8,9 @@ class ChosseYourExam extends StatefulWidget {
 }
 
 class _ChosseYourExamState extends State<ChosseYourExam> {
-  List<Company> _companies = Company.getCompanies();
-  List<DropdownMenuItem<Company>> _dropdownMenuItems;
-  Company _selectedCompany;
-
-  @override
-  void initState() {
-    _dropdownMenuItems = buildDropdownMenuItems(_companies);
-    _selectedCompany = _dropdownMenuItems[0].value;
-    super.initState();
-  }
-
-  List<DropdownMenuItem<Company>> buildDropdownMenuItems(List companies) {
-    List<DropdownMenuItem<Company>> items = List();
-    for (Company company in companies) {
-      items.add(
-        DropdownMenuItem(
-          value: company,
-          child: Text(company.name),
-        ),
-      );
-    }
-    return items;
-  }
-
-  onChangeDropdownItem(Company selectedCompany) {
-    setState(() {
-      _selectedCompany = selectedCompany;
-    });
-  }
+  String dropdownValue0;
+  String dropdownValue1;
+  String dropdownValue2;
 
   @override
   Widget build(BuildContext context) {
@@ -98,36 +71,73 @@ class _ChosseYourExamState extends State<ChosseYourExam> {
               ),
               Column(
                 children: <Widget>[
-                  Container(
-                    width: 200,
-                    child: DropdownButton(
-                      value: _selectedCompany,
-                      items: _dropdownMenuItems,
-                      onChanged: onChangeDropdownItem,
-                    ),
-                  ),
+                  DropdownButton<String>(
+                      value: dropdownValue0,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.deepOrange),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurple,
+                      ),
+                      items: <String>['tow', 'three', 'four', 'one']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          dropdownValue0 = newValue;
+                        });
+                      }),
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    width: 200,
-                    child: DropdownButton(
-                      value: _selectedCompany,
-                      items: _dropdownMenuItems,
-                      onChanged: onChangeDropdownItem,
-                    ),
-                  ),
+                  DropdownButton<String>(
+                      value: dropdownValue1,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.deepOrange),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurple,
+                      ),
+                      items: <String>['tow', 'three', 'four', 'one']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          dropdownValue1 = newValue;
+                        });
+                      }),
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    width: 200,
-                    child: DropdownButton(
-                      value: _selectedCompany,
-                      items: _dropdownMenuItems,
-                      onChanged: onChangeDropdownItem,
-                    ),
-                  ),
+                  DropdownButton<String>(
+                      value: dropdownValue2,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.deepOrange),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurple,
+                      ),
+                      items: <String>['tow', 'three', 'four', 'one']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          dropdownValue2 = newValue;
+                        });
+                      }),
+
                 ],
               )
             ],

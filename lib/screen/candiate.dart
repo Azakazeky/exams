@@ -1,6 +1,5 @@
 import 'package:exam01/screen/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:exam01/compant.dart';
 
 class Login extends StatefulWidget {
   static const routName = '/login';
@@ -10,36 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  List<Company> _companies = Company.getCompanies();
-  List<DropdownMenuItem<Company>> _dropdownMenuItems;
-  Company _selectedCompany;
-
-  @override
-  void initState() {
-    _dropdownMenuItems = buildDropdownMenuItems(_companies);
-    _selectedCompany = _dropdownMenuItems[0].value;
-    super.initState();
-  }
-
-  List<DropdownMenuItem<Company>> buildDropdownMenuItems(List companies) {
-    List<DropdownMenuItem<Company>> items = List();
-    for (Company company in companies) {
-      items.add(
-        DropdownMenuItem(
-          value: company,
-          child: Text(company.name),
-        ),
-      );
-    }
-    return items;
-  }
-
-  onChangeDropdownItem(Company selectedCompany) {
-    setState(() {
-      _selectedCompany = selectedCompany;
-    });
-  }
-
+  String dropdownValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,25 +42,54 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(
                 height: 20,
-              ),Container(width: 350,
-          child: Divider(thickness: 3 ,
-            color: Colors.grey[500],
-          ),
-        ),
+              ),
+              Container(
+                width: 350,
+                child: Divider(
+                  thickness: 3,
+                  color: Colors.grey[500],
+                ),
+              ),
               Row(
+                mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   Text("Organization"),
                   SizedBox(
-                    width: 30,
+                    width: 15,
                   ),
-
                   Container(
-                    width: 250,
-                    child: DropdownButton(
-                      value: _selectedCompany,
-                      items: _dropdownMenuItems,
-                      onChanged: onChangeDropdownItem,
-                    ),
+                    child: DropdownButton<String>(
+                        value: dropdownValue,
+                        elevation: 16,
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.deepPurple,
+                        ),
+                        items: <String>[
+                          'Pre_registered user',
+                          'European university for modern scince',
+                          'Jefferson University',
+                          'National Education Network',
+                          'Michigan Academy',
+                          'Quadrabay'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(fontSize: 11),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (newValue) {
+                          setState(() {
+                            dropdownValue = newValue;
+                          });
+                        }),
+                    margin: EdgeInsets.all(5),
                   ),
                 ],
               ),
