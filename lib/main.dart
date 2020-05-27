@@ -1,15 +1,13 @@
-import 'package:exam01/screen/accessmethod.dart';
-import 'package:exam01/screen/candiate.dart';
-import 'package:exam01/screen/accessmethod.dart';
-import 'package:exam01/screen/tca.dart';
 import 'package:flutter/material.dart';
+import 'screen/tca.dart';
 import 'screen/home.dart';
 import 'screen/serial.dart';
 import 'screen/profile.dart';
-import 'screen/accessmethod.dart';
 import 'screen/authcode.dart';
-import 'screen/vouchercode.dart';
+import 'screen/candiate.dart';
 import 'screen/choseyexam.dart';
+import 'screen/vouchercode.dart';
+import 'screen/accessmethod.dart';
 
 void main() => runApp(MyApp());
 
