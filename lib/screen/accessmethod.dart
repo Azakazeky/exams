@@ -1,3 +1,4 @@
+import 'package:exam01/screen/authcode.dart';
 import 'package:exam01/screen/choseyexam.dart';
 import 'package:exam01/screen/vouchercode.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +112,7 @@ class AccessMethod extends StatelessWidget {
                     height: 140,
                     child: FlatButton(
                       onPressed: () =>
-                          Navigator.pushNamed(context, ChosseYourExam.routName),
+                          Navigator.pushNamed(context, AuthCode.routName),
                       child: Card(
                         child: Column(
                           children: <Widget>[

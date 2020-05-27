@@ -36,6 +36,44 @@ class VoucherCode extends StatelessWidget {
               color: Colors.grey[500],
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text('Voucher Code'),
+              Container(
+                width: 200,
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: TextField(
+                  style: TextStyle(fontSize: 14, height: 1),
+                  decoration: const InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                    hintText: 'ُEnter Your Voucher Code',
+                    helperText: 'this note for help you, this is just a demo.',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 200,
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Container(
+              width: 75,
+              height: 30,
+              color: Colors.blue[700],
+              margin: EdgeInsets.all(5),
+              padding: EdgeInsets.all(3),
+              child: Text(
+                'Next >>',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
         ],
       ),
     );

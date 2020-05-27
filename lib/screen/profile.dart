@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'accessmethod.dart';
+
 class Profile extends StatelessWidget {
   static const routName = '/profile';
   @override
@@ -132,15 +133,24 @@ class Profile extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 20,),
-        Container(color: Colors.cyanAccent,
-          child: FlatButton(
-            onPressed:()=> Navigator.pushNamed(context,AccessMethod.routName ), 
-            child: Text('Access Method',
-            style: TextStyle(color: Colors.black87,
-              fontSize: 28,fontWeight: FontWeight.bold),),)),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            color: Colors.cyanAccent,
+            child: FlatButton(
+              onPressed: () =>
+                  Navigator.pushNamed(context, AccessMethod.routName),
+              child: Text(
+                'Access Method',
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
         ],
-        
       ),
     );
   }

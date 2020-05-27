@@ -71,21 +71,19 @@ class _LoginState extends State<Login> {
                     color: Colors.grey),
               ),
               SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 350,
-                child: Divider(
-                  thickness: 3,
-                  color: Colors.grey[500],
-                ),
-              ),
+                height: 20,
+              ),Container(width: 350,
+          child: Divider(thickness: 3 ,
+            color: Colors.grey[500],
+          ),
+        ),
               Row(
                 children: <Widget>[
                   Text("Organization"),
                   SizedBox(
                     width: 30,
                   ),
+
                   Container(
                     width: 250,
                     child: DropdownButton(
