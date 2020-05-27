@@ -23,9 +23,20 @@ class SerialScreen extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Text('License Key'),
+        Text(
+          'License Key',
+          style: TextStyle(
+              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.grey),
+        ),
         SizedBox(
           height: 10,
+        ),
+        Container(
+          width: 350,
+          child: Divider(
+            thickness: 3,
+            color: Colors.grey[500],
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,

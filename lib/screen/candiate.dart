@@ -1,5 +1,5 @@
+import 'package:exam01/screen/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:exam01/compant.dart';
 import 'package:exam01/compant.dart';
 
 class Login extends StatefulWidget {
@@ -10,6 +10,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  List<Company> _companies = Company.getCompanies();
+  List<DropdownMenuItem<Company>> _dropdownMenuItems;
+  Company _selectedCompany;
+
   @override
   void initState() {
     _dropdownMenuItems = buildDropdownMenuItems(_companies);
@@ -30,12 +34,6 @@ class _LoginState extends State<Login> {
     return items;
   }
 
-  List<Company> _companies = Company.getCompanies();
-  List<DropdownMenuItem<Company>> _dropdownMenuItems;
-  Company _selectedCompany;
-
-  String selecteduser;
-                                                             
   onChangeDropdownItem(Company selectedCompany) {
     setState(() {
       _selectedCompany = selectedCompany;
@@ -73,7 +71,14 @@ class _LoginState extends State<Login> {
                     color: Colors.grey),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              Container(
+                width: 350,
+                child: Divider(
+                  thickness: 3,
+                  color: Colors.grey[500],
+                ),
               ),
               Row(
                 children: <Widget>[
@@ -82,20 +87,13 @@ class _LoginState extends State<Login> {
                     width: 30,
                   ),
                   Container(
-                    width: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
+                    width: 250,
                     child: DropdownButton(
                       value: _selectedCompany,
                       items: _dropdownMenuItems,
                       onChanged: onChangeDropdownItem,
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Text('Selected: ${_selectedCompany.name}'),
                 ],
               ),
               SizedBox(
@@ -142,7 +140,7 @@ class _LoginState extends State<Login> {
                 height: 20,
               ),
               FlatButton(
-                onPressed: () => Navigator.pushNamed(context, Login.routName),
+                onPressed: () => Navigator.pushNamed(context, Profile.routName),
                 child: Container(
                   width: 75,
                   height: 30,
